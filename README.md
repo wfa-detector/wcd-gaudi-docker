@@ -9,4 +9,4 @@ The wcd_shifter_runner.ini should be installed into `~/.pytaskfarmer/runners.d/`
 
 ## History of deployed images
 
-* latest version: spagan/wcd:main-alma9
+* latest version: arastogi/wcd:main-gaudi-alma9

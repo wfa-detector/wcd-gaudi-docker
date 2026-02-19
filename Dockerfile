@@ -4,10 +4,10 @@
 ###############################################################################
 
 ## Settings
-ARG VERSION=main
+ARG VERSION=main-gaudi
 
 ## Starting docker image
-FROM gitlab-registry.cern.ch/muon-collider/mucoll-deploy/mucoll:2.9-alma9
+FROM ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:full_gaudi_test
 
 ## Add additional dependencies
 USER root
