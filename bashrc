@@ -33,5 +33,4 @@ PS1='\[\033[01;32m\]${WCD_VER}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 
 # Setup spack and Muon Collider software
 #source /opt/setup_spack.sh
-#source /opt/setup_mucoll.sh
-source /opt/spack/opt/spack/.../linux-almalinux9-x86_64/mucoll-stack-.../setup.sh
+source /opt/setup_mucoll.sh

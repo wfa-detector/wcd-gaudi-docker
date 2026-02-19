@@ -2,7 +2,7 @@
 # USAGE: ./build.sh [<version>] [<repository>]
 # optionally, set ${DOCKER} to docker command to use, default: docker
 
-VERSION="main"
+VERSION="main-gaudi"
 REPOSITORY=${USER} #dockerhub user repository
 SUFFIX="alma9"
 
