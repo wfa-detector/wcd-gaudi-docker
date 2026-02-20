@@ -8,6 +8,6 @@ docker run -ti --rm \
        -v ${HOME}/.Xauthority:/home/${USER}/.Xauthority -v ${HOME}/.ssh:/home/${USER}/.ssh \
        --net=host \
        --entrypoint /bin/bash \
-       arastogi/wcd:${VERSION}
+       angirar/wcd:${VERSION}
 
 #       -v ${PWD}:/home/${USER} -w /home/${USER} \

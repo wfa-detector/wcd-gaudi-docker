@@ -7,7 +7,7 @@
 ARG VERSION=main-gaudi
 
 ## Starting docker image
-FROM ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:full_gaudi_test
+FROM ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:main
 
 ## Add additional dependencies
 USER root
