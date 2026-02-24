@@ -3,7 +3,7 @@
 # main -- docker:wcd:main-gaudi-alma9
 #
 # Any new image needs to be pulled once (just from one user), using e.g.:
-# $ shifterimg -v pull docker:arastogi/wcd:main-gaudi-alma9
+# $ shifterimg -v pull docker:angirar/wcd:main-gaudi-alma9
 #
 
 usage() {
@@ -28,7 +28,7 @@ fi
 case ${IMAGE_SHORT} in
    "main")
       IMAGE_SHORT="main"
-      IMAGE="docker:arastogi/wcd:main-gaudi-alma9"
+      IMAGE="docker:angirar/wcd:main-gaudi-alma9"
       ;;
    *)
       echo "ERROR: Invalid image short-name as argument."
