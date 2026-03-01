@@ -4,7 +4,7 @@
 
 VERSION="main-gaudi"
 REPOSITORY=${USER} #dockerhub user repository
-SUFFIX="alma9"
+SUFFIX="ubuntu24"
 
 if [ "$#" -gt 0 ]; then
 	VERSION=$1

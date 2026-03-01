@@ -34,3 +34,6 @@ PS1='\[\033[01;32m\]${WCD_VER}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 # Setup spack and Muon Collider software
 #source /opt/setup_spack.sh
 source /opt/setup_mucoll.sh
+
+# Adjust python path to include some additional packages
+export PYTHONPATH=${PYTHONPATH}:/home/mucoll/python3/site-packages
