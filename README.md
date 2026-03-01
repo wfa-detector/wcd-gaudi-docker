@@ -12,4 +12,4 @@ The wcd_runner.ini should be installed into `~/.pytaskfarmer/runners.d/` to be u
 
 ## History of deployed images
 
-* latest version: angirar/wcd:main-gaudi-alma9
+* latest version: angirar/wcd:main-gaudi-ubuntu24

@@ -1,7 +1,7 @@
 #!/bin/bash
 # Example running docker command
 
-VERSION="main-gaudi-alma9"
+VERSION="main-gaudi-ubuntu24"
 docker run -ti --rm \
        --env DISPLAY=${DISPLAY} --env USER=${USER} --env WCD_VER=${VERSION}\
        --user=$(id -u $USER):$(id -g $USER) \

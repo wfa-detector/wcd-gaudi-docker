@@ -1,9 +1,9 @@
 # Setup Wafefield collider docker image within shifter.
 # Images prepared with (all versions listed), and they're short-description that can be used to set them up:
-# main -- docker:wcd:main-gaudi-alma9
+# main -- docker:wcd:main-gaudi-ubuntu24
 #
 # Any new image needs to be pulled once (just from one user), using e.g.:
-# $ shifterimg -v pull docker:angirar/wcd:main-gaudi-alma9
+# $ shifterimg -v pull docker:angirar/wcd:main-gaudi-ubuntu24
 #
 
 usage() {
@@ -28,7 +28,7 @@ fi
 case ${IMAGE_SHORT} in
    "main")
       IMAGE_SHORT="main"
-      IMAGE="docker:angirar/wcd:main-gaudi-alma9"
+      IMAGE="docker:angirar/wcd:main-gaudi-ubuntu24"
       ;;
    *)
       echo "ERROR: Invalid image short-name as argument."
