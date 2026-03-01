@@ -36,4 +36,4 @@ PS1='\[\033[01;32m\]${WCD_VER}\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
 source /opt/setup_mucoll.sh
 
 # Adjust python path to include some additional packages
-export PYTHONPATH=${PYTHONPATH}:/home/mucoll/python3/site-packages
+export PYTHONPATH=${PYTHONPATH}:/opt/python3/site-packages
