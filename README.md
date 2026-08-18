@@ -26,3 +26,4 @@ Build and run the same version locally:
 ## History of deployed images
 
 * latest version: `pauchkov/wcd:v3-gaudi-20260818-ubuntu24`
+* previous version: `angirar/wcd:main-gaudi-ubuntu24`
