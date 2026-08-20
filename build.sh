@@ -1,30 +1,18 @@
-#!/bin/bash
-# USAGE: ./build.sh [<version>] [<repository>]
-# optionally, set ${DOCKER} to docker command to use, default: docker
+#!/usr/bin/env bash
+set -euo pipefail
 
-VERSION="main-gaudi"
-REPOSITORY=${USER} #dockerhub user repository
+VERSION="${1:-v3-gaudi}"
+REPOSITORY="${2:-pauchkov}"
 SUFFIX="ubuntu24"
+DOCKER="${DOCKER:-docker}"
 
-if [ "$#" -gt 0 ]; then
-	VERSION=$1
-fi
+SCRIPT_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+IMAGE="${REPOSITORY}/wcd:${VERSION}-${SUFFIX}"
 
-if [ "$#" -gt 1 ]; then
-	REPOSITORY=$2
-fi
+echo "Building ${IMAGE}"
 
-if [[ -z "${DOCKER}" ]]; then
-    DOCKER="docker"
-fi
-
-
-# exit when any command fails
-set -e
-
-# The actual building
-echo "### Building Docker images: ${REPOSITORY}/<IMAGE>:${VERSION}-${SUFFIX}"
-echo
-#
-echo "### Building the Spack image" && \
-${DOCKER} build -t ${REPOSITORY}/wcd:${VERSION}-${SUFFIX} --build-arg VERSION -f Dockerfile .
+"${DOCKER}" build \
+    --tag "${IMAGE}" \
+    --build-arg "VERSION=${VERSION}" \
+    --file "${SCRIPT_DIR}/Dockerfile" \
+    "${SCRIPT_DIR}"
