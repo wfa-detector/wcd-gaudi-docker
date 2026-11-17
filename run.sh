@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-VERSION="${1:-v3-gaudi}"
+VERSION="${1:-v3.1-20261117}"
 REPOSITORY="${2:-pauchkov}"
 SUFFIX="ubuntu24"
 DOCKER="${DOCKER:-docker}"

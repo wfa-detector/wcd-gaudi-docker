@@ -1,29 +1,45 @@
-# WakeField Acceleration Collider Detector - container setup
+# Wakefield Gaudi Docker image based on MuColl v3.1
 
-Docker image and utilities to build the WFA Collider Detector software container
-based on the MuColl v3 environment.
+This branch builds a Wakefield development image on top of the published
+`ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:v3.1` image. It keeps the
+Wakefield Python tools `openpmd_viewer` and `openpmd_api` and the interactive
+shell setup in `bashrc`. It does not add or override EDM4hep. The MuColl v3.1
+base image provides EDM4hep 1.1.0.
 
-## Shifter (e.g. on NERSC)
-The `wcd-shifter.sh` script gives an example to run the docker image with shifter.
-
-The wcd_runner.ini should be installed into `~/.pytaskfarmer/runners.d/` to be used with [pytaskfarmer](https://gitlab.cern.ch/berkeleylab/pytaskfarmer).
-
-## Docker container
-
-The versioned image is available from Docker Hub:
+## Build and run locally
 
 ```bash
-docker pull pauchkov/wcd:v3-gaudi-20260818-ubuntu24
+./build.sh
+./run.sh
 ```
 
-Build and run the same version locally:
+The default local image tag is `pauchkov/wcd:v3.1-20261117-ubuntu24`. Pass a version
+and Docker Hub namespace to both scripts to use another tag. Building locally
+does not publish the image.
+
+After a successful build and local check, publish this tag with:
 
 ```bash
-./build.sh v3-gaudi-20260818 pauchkov
-./run.sh v3-gaudi-20260818 pauchkov
+docker login -u pauchkov
+docker push pauchkov/wcd:v3.1-20261117-ubuntu24
+docker pull pauchkov/wcd:v3.1-20261117-ubuntu24
 ```
 
-## History of deployed images
+Inside the container, inspect the active EDM4hep version with:
 
-* latest version: `pauchkov/wcd:v3-gaudi-20260818-ubuntu24`
-* previous version: `angirar/wcd:main-gaudi-ubuntu24`
+```bash
+python3 -c 'import edm4hep; print(edm4hep.__version__, edm4hep.__file__)'
+```
+
+## Reconstruction components
+
+This Dockerfile uses the ACTS, DD4hep, Gaudi, EDM4hep and Pandora components
+supplied by MuColl v3.1. It does not install Wakefield-specific ACTS tracking
+geometry or a material map; those are built and activated in the separate
+reconstruction workspace.
+
+## Shifter
+
+`wcd-shifter.sh` is an example for running a published image with Shifter.
+`wcd_runner.ini` can be installed into `~/.pytaskfarmer/runners.d/` for
+[pytaskfarmer](https://gitlab.cern.ch/berkeleylab/pytaskfarmer).

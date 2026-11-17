@@ -1,23 +1,17 @@
 ###############################################################################
-#  Repository: wcd-docker
-#  Tag:        ${VERSION}-ubuntu24
+# Wakefield image based on MuColl v3.1
 ###############################################################################
+ARG VERSION=v3.1-20261117
+FROM ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:v3.1
+ARG VERSION
+LABEL org.opencontainers.image.version="${VERSION}-ubuntu24"
 
-## Settings
-ARG VERSION=main-gaudi
-
-## Starting docker image
-FROM ghcr.io/muoncollidersoft/mucoll-sim-ubuntu24:v3.0
-
-## Add additional system-wide dependencies
 USER root
 
-# Install system-side python packages in a specific folder to be included
-# in the PYTHONPATH environment variable in the bashrc file.
-RUN bash -c 'source /opt/setup_mucoll.sh && \
+# Use the v3.1 stack dependencies; install only the Wakefield Python tools.
+RUN bash -lc 'source /opt/setup_mucoll.sh && \
     TARGET_DIR=/opt/python3/site-packages && \
     mkdir -p ${TARGET_DIR} && \
-    python3 -m pip install --target ${TARGET_DIR} openpmd_viewer openpmd_api'
+    python3 -m pip install --no-deps --target ${TARGET_DIR} openpmd_viewer openpmd_api'
 
-## Add a simple bashrc in a neutral path
 COPY bashrc /etc/profile.d/bashrc.sh
